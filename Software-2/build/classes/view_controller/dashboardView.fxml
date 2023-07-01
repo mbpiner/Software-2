@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view_controller.DashboardController">
+    <children>
+        <Pane layoutX="25.0" layoutY="45.0" prefHeight="114.0" prefWidth="352.0">
+            <children>
+                <Label alignment="CENTER" prefHeight="37.0" prefWidth="352.0" text="Customers" textAlignment="CENTER">
+                    <font>
+                        <Font name="Arial Black" size="16.0" />
+                    </font>
+                </Label>
+                <Button layoutX="97.0" layoutY="68.0" mnemonicParsing="false" onAction ="#openAddCustomerWindow" prefHeight="22.0" prefWidth="165.0" text="Add">
+                    <font>
+                        <Font name="Arial Black" size="12.0" />
+                    </font>
+                </Button>
+                <Button layoutX="97.0" layoutY="37.0" mnemonicParsing="false" onAction ="#openViewEditDeleteCustomerWindow" prefHeight="22.0" prefWidth="165.0" text="View/Edit/Delete">
+                    <font>
+                        <Font name="Arial Black" size="12.0" />
+                    </font>
+                </Button>
+            </children>
+        </Pane>
+        <Separator layoutX="25.0" layoutY="151.0" prefHeight="15.0" prefWidth="352.0" />
+        <Separator layoutX="25.0" layoutY="265.0" prefHeight="15.0" prefWidth="352.0" />
+        <Pane layoutX="25.0" layoutY="158.0" prefHeight="114.0" prefWidth="352.0">
+            <children>
+                <Label alignment="CENTER" prefHeight="37.0" prefWidth="352.0" text="Appointments" textAlignment="CENTER">
+                    <font>
+                        <Font name="Arial Black" size="16.0" />
+                    </font>
+                </Label>
+                <Button layoutX="11.0" layoutY="68.0" mnemonicParsing="false" onAction ="#openAddAppointmentWindow" prefHeight="22.0" prefWidth="165.0" text="Add">
+                    <font>
+                        <Font name="Arial Black" size="12.0" />
+                    </font>
+                </Button>
+                <Button layoutX="11.0" layoutY="37.0" mnemonicParsing="false" onAction ="#openViewEditDeleteAppointmentWindow" prefHeight="22.0" prefWidth="165.0" text="View/Edit/Delete">
+                    <font>
+                        <Font name="Arial Black" size="12.0" />
+                    </font>
+                </Button>
+                <Button layoutX="182.0" layoutY="68.0" mnemonicParsing="false" onAction ="#openNextMonthWindow" prefHeight="22.0" prefWidth="165.0" text="Next Month">
+                    <font>
+                        <Font name="Arial Black" size="12.0" />
+                    </font>
+                </Button>
+                <Button layoutX="182.0" layoutY="37.0" mnemonicParsing="false" onAction ="#openNextWeekWindow" prefHeight="22.0" prefWidth="165.0" text="Next Week">
+                    <font>
+                        <Font name="Arial Black" size="12.0" />
+                    </font>
+                </Button>
+            </children>
+        </Pane>
+        <Pane layoutX="24.0" layoutY="272.0" prefHeight="114.0" prefWidth="352.0">
+            <children>
+                <Label alignment="CENTER" prefHeight="37.0" prefWidth="352.0" text="Reports" textAlignment="CENTER">
+                    <font>
+                        <Font name="Arial Black" size="16.0" />
+                    </font>
+                </Label>
+                <Button layoutX="11.0" layoutY="69.0" mnemonicParsing="false" onAction ="#openScheduleByClientWindow" prefHeight="22.0" prefWidth="165.0" text="Consultant Schedules">
+                    <font>
+                        <Font name="Arial Black" size="12.0" />
+                    </font>
+                </Button>
+                <Button layoutX="11.0" layoutY="38.0" mnemonicParsing="false" onAction ="#openApptTypesByMonthWindow" prefHeight="22.0" prefWidth="165.0" text="Appointments By Type">
+                    <font>
+                        <Font name="Arial Black" size="12.0" />
+                    </font>
+                </Button>
+                <Button layoutX="182.0" layoutY="69.0" mnemonicParsing="false" onAction ="#openConsultantRankingsWindow" prefHeight="22.0" prefWidth="165.0" text="Sales Pres. Rankings">
+                    <font>
+                        <Font name="Arial Black" size="12.0" />
+                    </font>
+                </Button>
+                <Button layoutX="182.0" layoutY="38.0" mnemonicParsing="false" onAction ="#openLogsWindow" prefHeight="22.0" prefWidth="165.0" text="Logs">
+                    <font>
+                        <Font name="Arial Black" size="12.0" />
+                    </font>
+                </Button>
+            </children>
+        </Pane>
+        <Label alignment="CENTER" prefHeight="49.0" prefWidth="400.0" text="Dashboard" textAlignment="CENTER">
+            <font>
+                <Font name="Arial Black" size="16.0" />
+            </font>
+        </Label>
+        <Separator layoutX="24.0" layoutY="38.0" prefHeight="15.0" prefWidth="352.0" />
+    </children>
+</AnchorPane>

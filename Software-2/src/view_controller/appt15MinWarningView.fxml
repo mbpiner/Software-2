@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/11.0.1" fx:controller="view_controller.Appt15MinWarningController">
+    <children>
+        <TableView fx:id="next15MinsAppointmentTable" layoutY="-1.0" prefHeight="400.0" prefWidth="600.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <columns>
+                <TableColumn fx:id="customerColumn" prefWidth="127.0" text="Customer" />
+                <TableColumn fx:id="consultantColumn" prefWidth="119.0" text="Consultant" />
+                <TableColumn fx:id="typeColumn" maxWidth="323.0" minWidth="-1.0" prefWidth="168.0" text="Type" />
+                <TableColumn fx:id="dateTimeColumn" prefWidth="185.0" text="Date/Time (UTC)" />
+            </columns>
+        </TableView>
+    </children>
+</AnchorPane>
