@@ -13,11 +13,6 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import model.ReportDAO;
 
-/**
- *
- *
- * @author Mason
- */
 public class ApptTypesByMonthReportController implements Initializable {
 
     @FXML
