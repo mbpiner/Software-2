@@ -25,10 +25,6 @@ import model.AppointmentDAO;
 import model.Log;
 import model.Query;
 
-/**
- *
- * @author Mason
- */
 public class LoginController implements Initializable {
 
     @FXML
