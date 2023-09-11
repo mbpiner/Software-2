@@ -25,35 +25,18 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 
-/**
- *
- * @author Mason
- */
+
 public class DB {
 
-//    static final String DBNAME = "U06Z4x";
-//    static final String DB_URL = "jdbc:mysql://3.227.166.251/" + DBNAME;
-//    static final String JDBC_DRIVER = "com.mysql.jdbc.Driver";
-//
-//    static final String USER = "U06Z4x";
-//    static final String PASS = "53688910137";
-//    
+    // NOTE: These values are not valid anymore. You must replace these with your valid database information and add MySQL JDBC driver to your IDE
     
-    
-    
-    static final String DBNAME = "test";
-    static final String DB_URL = "jdbc:mysql://localhost/" + DBNAME + "?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC";
-    //jdbc:mysql://localhost/db?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC
 
+    static final String DBNAME = "U06Z4x";
+    static final String DB_URL = "jdbc:mysql://3.227.166.251/" + DBNAME;
     static final String JDBC_DRIVER = "com.mysql.jdbc.Driver";
 
-    static final String USER = "debian-sys-maint";
-    static final String PASS = "8ouv2tJjBbC7Wr5c";
-    
-    
-    
-    
-    
+    static final String USER = "U06Z4x";
+    static final String PASS = "53688910137";
     
     
     
