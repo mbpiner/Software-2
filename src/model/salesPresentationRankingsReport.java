@@ -1,9 +1,5 @@
 package model;
 
-/**
- *
- * @author Mason
- */
 public class salesPresentationRankingsReport {
 
     public String user;
