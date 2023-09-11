@@ -4,6 +4,7 @@ package view_controller;
 import java.net.URL;
 import java.sql.SQLException;
 import java.util.ResourceBundle;
+
 import javafx.fxml.Initializable;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -19,10 +20,12 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
+
 import java.io.IOException;
 import java.net.URL;
 import java.util.Optional;
 import java.util.ResourceBundle;
+
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -33,10 +36,12 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+
 import java.net.URL;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+
 import javafx.collections.transformation.FilteredList;
 import javafx.collections.transformation.SortedList;
 import javafx.event.ActionEvent;
@@ -50,6 +55,7 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import model.Customer;
 import model.CustomerDAO;
 import model.Query;
+
 import static model.Main.allCities;
 import static model.Main.allConsultants;
 
@@ -105,7 +111,8 @@ public class ViewEditDeleteCustomerController implements Initializable {
             + "Zip codes must strictly be 5 numeric characters 0-9.\n"
             + "City must also be selected for country to populate.";
 
-    public int editCustomerID=0;
+    public int editCustomerID = 0;
+
     public void editCustomer() {
 
         Customer editCustomer = (Customer) custTableView.getSelectionModel().getSelectedItem();
@@ -120,9 +127,9 @@ public class ViewEditDeleteCustomerController implements Initializable {
         custZip.setText(Integer.toString(editCustomer.getZip()));
         custPhone.setText(editCustomer.getPhone());
     }
-    
-     public void deleteCustomer() {
-    
+
+    public void deleteCustomer() {
+
         try {
             Customer deleteCustomer = (Customer) custTableView.getSelectionModel().getSelectedItem();
             int deleteCustomerID = deleteCustomer.getCustomerID();
@@ -133,24 +140,23 @@ public class ViewEditDeleteCustomerController implements Initializable {
         } catch (Exception ex) {
             Logger.getLogger(ViewEditDeleteCustomerController.class.getName()).log(Level.SEVERE, null, ex);
         }
-     
-     }
+
+    }
 
     public void saveCustomer() throws ClassNotFoundException, SQLException, Exception {
 
-        
-            if(editCustomerID == 0){ 
-                
+
+        if (editCustomerID == 0) {
+
             Alert saveBeforeEditAlert = new Alert(Alert.AlertType.ERROR);
             saveBeforeEditAlert.setTitle("Invalid Button Press!");
             saveBeforeEditAlert.setHeaderText("No information to save.");
             saveBeforeEditAlert.setContentText("You must select a customer from the list, click edit to load it, and make any edits before saving.");
             saveBeforeEditAlert.showAndWait();
-            
-            } else {
-        
-        
-        
+
+        } else {
+
+
             String name = custName.getText();
             String address = custAddress.getText();
             String address2 = custAddress2.getText();
@@ -159,33 +165,31 @@ public class ViewEditDeleteCustomerController implements Initializable {
             String country = editCustomerCountry.getText();
             String phone = custPhone.getText();
             String zipString = String.valueOf(zip);
-            
-            if (CustomerDAO.customerInfoValidates(name, address, zipString, phone)){
-                
+
+            if (CustomerDAO.customerInfoValidates(name, address, zipString, phone)) {
+
 
                 CustomerDAO.updateCustomer(editCustomerID, name, address, address2, city, zip, phone);
                 custTableView.setItems(CustomerDAO.getAllCustomers());
-                
-                
-                
-                
+
+
             } else {
 
 
-            Alert failedValidationAlert = new Alert(Alert.AlertType.ERROR);
-            failedValidationAlert.setTitle(inputValidationFailTitle);
-            failedValidationAlert.setHeaderText(inputValidationFailHeader);
-            failedValidationAlert.setContentText(inputValidationFailContent);
-            failedValidationAlert.showAndWait();
+                Alert failedValidationAlert = new Alert(Alert.AlertType.ERROR);
+                failedValidationAlert.setTitle(inputValidationFailTitle);
+                failedValidationAlert.setHeaderText(inputValidationFailHeader);
+                failedValidationAlert.setContentText(inputValidationFailContent);
+                failedValidationAlert.showAndWait();
+
+            }
 
         }
-            
-            }
-        
+
 
     }
 
-  
+
     @Override
     public void initialize(URL url, ResourceBundle rb) {
 
@@ -203,8 +207,8 @@ public class ViewEditDeleteCustomerController implements Initializable {
                     Logger.getLogger(ViewEditDeleteCustomerController.class.getName()).log(Level.SEVERE, null, ex);
                 }
             });
-            
-            
+
+
         } catch (SQLException ex) {
             Logger.getLogger(ViewEditDeleteCustomerController.class.getName()).log(Level.SEVERE, null, ex);
         } catch (Exception ex) {
