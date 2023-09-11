@@ -1,20 +1,20 @@
 package model;
 
 import com.mysql.cj.xdevapi.Table;
+
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.HashMap;
 import java.util.Map;
+
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import static model.Main.filePath;
-import model.Query;
-import view_controller.LoginController; //06/24/2023 put this here for globalusername/id
 
-/**
- *
- * @author Mason
- */
+import static model.Main.filePath;
+
+import model.Query;
+import view_controller.LoginController; // put this here for globalusername/id
+
 public class ReportDAO {
 
     public static ObservableList<Report> reportList = FXCollections.observableArrayList();
@@ -52,7 +52,7 @@ public class ReportDAO {
         return reportList;
     }
 
-   public static ObservableList<salesPresentationRankingsReport> createSalesPresentationRankingsReport() throws ClassNotFoundException, SQLException, Exception {
+    public static ObservableList<salesPresentationRankingsReport> createSalesPresentationRankingsReport() throws ClassNotFoundException, SQLException, Exception {
 
         salesPresentationRankingsReportList.clear();
         for (int i = 1; i < 5; i++) {
