@@ -10,10 +10,6 @@ import view_controller.LoginController;
 
 import static model.AppointmentDAO.correctApptCustName;
 
-/**
- *
- * @author Mason
- */
 public class CustomerDAO {
 
     public static ObservableList<Customer> allCustomers = FXCollections.observableArrayList();
