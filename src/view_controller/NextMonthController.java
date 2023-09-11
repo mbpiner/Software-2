@@ -18,11 +18,6 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import model.AppointmentDAO;
 
-/**
- *
- *
- * @author Mason
- */
 public class NextMonthController implements Initializable {
 
     @FXML
