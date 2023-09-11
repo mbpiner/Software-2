@@ -5,6 +5,7 @@ import java.sql.SQLException;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
@@ -22,13 +23,9 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import model.Customer;
 import model.CustomerDAO;
 import model.Query;
+
 import static model.Main.allCities;
 
-/**
- *
- *
- * @author Mason
- */
 public class AddCustomerController implements Initializable {
 
     @FXML
