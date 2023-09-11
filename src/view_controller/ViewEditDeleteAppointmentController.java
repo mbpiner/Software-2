@@ -12,6 +12,7 @@ import java.time.format.DateTimeFormatter;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -33,12 +34,6 @@ import model.AppointmentDAO;
 import model.Customer;
 import model.CustomerDAO;
 
-
-/**
- *
- *
- * @author Mason
- */
 public class ViewEditDeleteAppointmentController implements Initializable {
 
     @FXML
@@ -91,7 +86,7 @@ public class ViewEditDeleteAppointmentController implements Initializable {
     public static ObservableList<Customer> allCustomers = FXCollections.observableArrayList();
     public static ObservableList<String> allCustomerNames = FXCollections.observableArrayList();
     public int editAppointmentID;
-    public int editCustomerID=0;
+    public int editCustomerID = 0;
     public String editCustomerName;
 
     String alertTitleDateFormat = "Appointment Edit Failed!";
@@ -105,10 +100,10 @@ public class ViewEditDeleteAppointmentController implements Initializable {
     String alertApptOverlapTitle = "Appointment Add Failed!";
     String alertApptOverlapHeader = "Appointment time already reserved!";
     String alertApptOverlapContent = "Please pick an earlier or later time for this appointment.";
-    
-   
+
+
     public void deleteAppointment() {
-        
+
         try {
             Appointment deleteAppointment = (Appointment) apptTableView.getSelectionModel().getSelectedItem();
             int deleteAppointmentID = deleteAppointment.getAppointmentID();
@@ -119,7 +114,7 @@ public class ViewEditDeleteAppointmentController implements Initializable {
         } catch (Exception ex) {
             Logger.getLogger(ViewEditDeleteAppointmentController.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
+
     }
 
     public void editAppointment() {
@@ -157,104 +152,84 @@ public class ViewEditDeleteAppointmentController implements Initializable {
     }
 
     public void saveAppointment() throws ClassNotFoundException, SQLException, Exception {
-        
-        
-        
-            if(editAppointmentID == 0){ 
-                
+
+
+        if (editAppointmentID == 0) {
+
             Alert saveBeforeEditAlert = new Alert(Alert.AlertType.ERROR);
             saveBeforeEditAlert.setTitle("Invalid Button Press!");
             saveBeforeEditAlert.setHeaderText("No information to save.");
             saveBeforeEditAlert.setContentText("You must select an appointment from the list, click edit to load it, and make any edits before saving.");
             saveBeforeEditAlert.showAndWait();
-            
-            } else {
-        
-        
-        
-        
-
-        type = (String) editAppointmentType.getSelectionModel().getSelectedItem();
-        editCustomerName = (String) editAppointmentCustomer.getSelectionModel().getSelectedItem();
-        String location = locationLabel.getText();
-        hour = (String) editAppointmentHour.getSelectionModel().getSelectedItem();
-        minute = (String) editAppointmentMinute.getSelectionModel().getSelectedItem();
-
-        LocalDate date = datePicker.getValue();
-        String time = hour + ":" + minute + ":" + "00";
-        String appointmentTime = date + "T" + time;
-
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
-
-        ZoneId timeZone = ZoneId.systemDefault();
-        ZonedDateTime zonedDateTime = LocalDateTime.parse(appointmentTime,
-                DateTimeFormatter.ISO_DATE_TIME).atZone(timeZone);
-
-        OffsetDateTime offset_utcTime = zonedDateTime.toOffsetDateTime().withOffsetSameInstant(ZoneOffset.UTC);
-        String UTC_appointmentTime = offset_utcTime.format(formatter);
-        ZonedDateTime now = ZonedDateTime.now(timeZone);
-
-        if (!AppointmentDAO.userHasOverlappingAppointment(zonedDateTime, editAppointmentID)) {
-
-            if (zonedDateTime.isBefore(now)) {
-                Alert dateInPastAlert = new Alert(Alert.AlertType.ERROR);
-                dateInPastAlert.setTitle(alertTitleDateInPast);
-                dateInPastAlert.setHeaderText(alertHeaderDateInPast);
-                dateInPastAlert.setContentText(alertContentDateInPast);
-                dateInPastAlert.showAndWait();
-
-            } else {
-                AppointmentDAO.updateAppointment(editAppointmentID, editCustomerID, editCustomerName, location, type, UTC_appointmentTime);
-                apptTableView.setItems(CustomerDAO.getAllCustomers());
-            }
 
         } else {
 
-            Alert apptOverlapAlert = new Alert(Alert.AlertType.ERROR);
-            apptOverlapAlert.setTitle(alertApptOverlapTitle);
-            apptOverlapAlert.setHeaderText(alertApptOverlapHeader);
-            apptOverlapAlert.setContentText(alertApptOverlapContent);
-            apptOverlapAlert.showAndWait();
-            throw new IllegalArgumentException("Invalid Appointment Date/Time input. This Date/Time overlaps with another appointment on your schedule. Please try another time.");
+
+            type = (String) editAppointmentType.getSelectionModel().getSelectedItem();
+            editCustomerName = (String) editAppointmentCustomer.getSelectionModel().getSelectedItem();
+            String location = locationLabel.getText();
+            hour = (String) editAppointmentHour.getSelectionModel().getSelectedItem();
+            minute = (String) editAppointmentMinute.getSelectionModel().getSelectedItem();
+
+            LocalDate date = datePicker.getValue();
+            String time = hour + ":" + minute + ":" + "00";
+            String appointmentTime = date + "T" + time;
+
+            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+
+            ZoneId timeZone = ZoneId.systemDefault();
+            ZonedDateTime zonedDateTime = LocalDateTime.parse(appointmentTime,
+                    DateTimeFormatter.ISO_DATE_TIME).atZone(timeZone);
+
+            OffsetDateTime offset_utcTime = zonedDateTime.toOffsetDateTime().withOffsetSameInstant(ZoneOffset.UTC);
+            String UTC_appointmentTime = offset_utcTime.format(formatter);
+            ZonedDateTime now = ZonedDateTime.now(timeZone);
+
+            if (!AppointmentDAO.userHasOverlappingAppointment(zonedDateTime, editAppointmentID)) {
+
+                if (zonedDateTime.isBefore(now)) {
+                    Alert dateInPastAlert = new Alert(Alert.AlertType.ERROR);
+                    dateInPastAlert.setTitle(alertTitleDateInPast);
+                    dateInPastAlert.setHeaderText(alertHeaderDateInPast);
+                    dateInPastAlert.setContentText(alertContentDateInPast);
+                    dateInPastAlert.showAndWait();
+
+                } else {
+                    AppointmentDAO.updateAppointment(editAppointmentID, editCustomerID, editCustomerName, location, type, UTC_appointmentTime);
+                    apptTableView.setItems(CustomerDAO.getAllCustomers());
+                }
+
+            } else {
+
+                Alert apptOverlapAlert = new Alert(Alert.AlertType.ERROR);
+                apptOverlapAlert.setTitle(alertApptOverlapTitle);
+                apptOverlapAlert.setHeaderText(alertApptOverlapHeader);
+                apptOverlapAlert.setContentText(alertApptOverlapContent);
+                apptOverlapAlert.showAndWait();
+                throw new IllegalArgumentException("Invalid Appointment Date/Time input. This Date/Time overlaps with another appointment on your schedule. Please try another time.");
+
+            }
 
         }
-        
-            }
 
     }
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
 
-        
-        
+
         try {
-            
+
             //Here we use a Lambda function to prevent our datePicker from being able to select any date before today's date.
             //This is shorter and much more readable with a lambda expression.
             datePicker.setDayCellFactory(picker -> new DateCell() {
                 public void updateItem(LocalDate date, boolean empty) {
-                super.updateItem(date, empty);
-                LocalDate today = LocalDate.now();
-                setDisable(empty || date.compareTo(today) < 0 );
-                } 
+                    super.updateItem(date, empty);
+                    LocalDate today = LocalDate.now();
+                    setDisable(empty || date.compareTo(today) < 0);
+                }
             });
-            
-            
-            /*
-            datePicker.setDayCellFactory(picker -> { return new DateCell() {
-                    public void updateItem(LocalDate date, boolean empty) {
-                        super.updateItem(date, empty);
-                        LocalDate today = LocalDate.now();
-                        setDisable(empty || date.compareTo(today) < 0);
-                    }
-                };
-            });
-*/
-            
-            
-            
-            
+
 
             editAppointmentHour.setItems(FXCollections.observableArrayList(
                     "09", "10", "11", "12", "13", "14", "15", "16"));
