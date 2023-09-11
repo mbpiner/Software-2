@@ -13,10 +13,6 @@ import java.util.HashSet;
 import java.util.Set;
 import java.util.stream.Collectors;
 
-/**
- *
- * @author Mason
- */
 public class AppointmentDAO {
 
     public AppointmentDAO() {
