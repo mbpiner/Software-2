@@ -6,13 +6,10 @@ import java.text.SimpleDateFormat;
 import java.time.*;
 import java.util.Calendar;
 import java.util.TimeZone;
+
 import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;  
-//
-/**
- *
- * @author Mason
- */
+import javafx.collections.ObservableList;
+
 public class Appointment {
 
     private int appointmentID, customerID, userID;
@@ -33,7 +30,6 @@ public class Appointment {
         this.location = location;
 
     }
-
 
 
     public int getAppointmentID() {
