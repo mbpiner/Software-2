@@ -3,10 +3,6 @@ package model;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
-/**
- *
- * @author Mason
- */
 public class Customer {
 
     public int customerID, zip, addressID;
