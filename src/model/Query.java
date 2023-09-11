@@ -2,10 +2,6 @@ package model;
 
 import java.sql.*;
 
-/**
- *
- * @author Mason
- */
 public class Query {
 
     static String query;
