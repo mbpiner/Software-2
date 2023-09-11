@@ -14,11 +14,6 @@ import javafx.stage.*;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 
-/**
- * 
- *
- * @author Mason
- */
 public class DashboardController implements Initializable {
 
     public void openAddCustomerWindow(ActionEvent event) throws Exception {
