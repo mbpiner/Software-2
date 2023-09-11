@@ -1,6 +1,7 @@
 package view_controller;
 
 import view_controller.AddCustomerController;
+
 import java.net.URL;
 import java.sql.*;
 import java.time.LocalDate;
@@ -10,10 +11,13 @@ import java.time.ZoneId;
 import java.time.ZoneOffset;
 import java.time.ZonedDateTime;
 import java.time.format.DateTimeFormatter;
+
 import static java.time.temporal.TemporalQueries.localTime;
+
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -35,6 +39,7 @@ import model.AppointmentDAO;
 import model.Customer;
 import model.CustomerDAO;
 import model.Query;
+
 import static model.Main.allCities;
 
 public class AddAppointmentController implements Initializable {
