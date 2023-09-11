@@ -8,6 +8,7 @@ import java.util.Map;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+
 import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -15,19 +16,16 @@ import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
 import java.util.Set;
 import java.util.ArrayList;
+
 import model.Appointment;
 import model.AppointmentDAO;
 
-/**
- * 
- *
- * @author Mason
- */
 public class ScheduleByConsultantController implements Initializable {
 
     @FXML
@@ -60,20 +58,20 @@ public class ScheduleByConsultantController implements Initializable {
             locationColumn.setCellValueFactory(new PropertyValueFactory<>("Location"));
             apptTableView.setItems(AppointmentDAO.getAllAppointments(LoginController.globalCurrentUserID));
             System.out.println("initbefore tableview set");
-            
-              
-        userNameToIDMap.put("test", 1);
-        userNameToIDMap.put("jacksmith", 2);
-        userNameToIDMap.put("george", 3);
-        userNameToIDMap.put("securityman", 4);
-        
-        consultantList.setItems(FXCollections.observableArrayList(
-                "test", "jacksmith", "george", "securityman"));
-        
-        
-        
-        consultantList.setOnAction((event) -> {
-            
+
+            // Here we'll set a few users to test the software       
+
+            userNameToIDMap.put("test", 1);
+            userNameToIDMap.put("jacksmith", 2);
+            userNameToIDMap.put("george", 3);
+            userNameToIDMap.put("securityman", 4);
+
+            consultantList.setItems(FXCollections.observableArrayList(
+                    "test", "jacksmith", "george", "securityman"));
+
+
+            consultantList.setOnAction((event) -> {
+
                 try {
                     String selectedUser = (String) consultantList.getSelectionModel().getSelectedItem();
                     int selectedUserID = userNameToIDMap.get(selectedUser);
@@ -84,16 +82,14 @@ public class ScheduleByConsultantController implements Initializable {
                     Logger.getLogger(ScheduleByConsultantController.class.getName()).log(Level.SEVERE, null, ex);
                 }
 
-        });
-        
+            });
+
         } catch (SQLException ex) {
             Logger.getLogger(ScheduleByConsultantController.class.getName()).log(Level.SEVERE, null, ex);
         } catch (Exception ex) {
             Logger.getLogger(ScheduleByConsultantController.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
-        
-      
+
 
     }
 
