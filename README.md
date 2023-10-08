@@ -9,11 +9,17 @@ The organization outlined specific business requirements that must be included a
 Requirements - 
 
 Create a log-in form that can determine the user’s location and translate log-in and error control messages (e.g., “The username and password did not match.”) into two languages.
+
 Provide the ability to add, update, and delete customer records in the database, including name, address, and phone number.
+
 Provide the ability to add, update, and delete appointments, capturing the type of appointment and a link to the specific customer record in the database.
+
 Provide the ability to view the calendar by month and by week.
+
 Provide the ability to automatically adjust appointment times based on user time zones and daylight saving time.
-Write exception controls to prevent each of the following. You may use the same mechanism of exception control more than once, but you must incorporate at least two different mechanisms of exception control for scheduling an appointment outside business hours, scheduling overlapping appointments, entering nonexistent or invalid customer data, or entering an incorrect username and password.
+
+Write exception controls to prevent each of the following - you may use the same mechanism of exception control more than once, but you must incorporate at least two different mechanisms of exception control for scheduling an appointment outside 
+business hours, scheduling overlapping appointments, entering nonexistent or invalid customer data, or entering an incorrect username and password.
 
 Write two or more lambda expressions to make your program more efficient, justifying the use of each lambda expression with an in-line comment.
 
