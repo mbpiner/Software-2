@@ -6,7 +6,8 @@ You are working for a software company that has been contracted to develop a sch
 
 The organization outlined specific business requirements that must be included as part of the application. From these requirements, a system analyst at your company created solution statements for you to implement in developing the application. These statements are listed in the requirements section.
 
-Requirements
+Requirements - 
+
 Create a log-in form that can determine the user’s location and translate log-in and error control messages (e.g., “The username and password did not match.”) into two languages.
 Provide the ability to add, update, and delete customer records in the database, including name, address, and phone number.
 Provide the ability to add, update, and delete appointments, capturing the type of appointment and a link to the specific customer record in the database.
