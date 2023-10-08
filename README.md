@@ -12,18 +12,13 @@ Provide the ability to add, update, and delete customer records in the database,
 Provide the ability to add, update, and delete appointments, capturing the type of appointment and a link to the specific customer record in the database.
 Provide the ability to view the calendar by month and by week.
 Provide the ability to automatically adjust appointment times based on user time zones and daylight saving time.
-Write exception controls to prevent each of the following. You may use the same mechanism of exception control more than once, but you must incorporate at least two different mechanisms of exception control.
+Write exception controls to prevent each of the following. You may use the same mechanism of exception control more than once, but you must incorporate at least two different mechanisms of exception control:
 
-scheduling an appointment outside business hours
-scheduling overlapping appointments
-entering nonexistent or invalid customer data
-entering an incorrect username and password
-Write two or more lambda expressions to make your program more efficient, justifying the use of each lambda expression with an in-line comment.
+Scheduling an appointment outside business hours, scheduling overlapping appointments, entering nonexistent or invalid customer data, or entering an incorrect username and password
+
+Write two or more lambda expressions to make your program more efficient, justifying the use of each lambda expression with an in-line comment
 Write code to provide an alert if there is an appointment within 15 minutes of the user’s log-in.
-Provide the ability to generate each of the following reports:
+Provide the ability to generate each of the following reports: number of appointment types by month, the schedule for each consultant, one additional report of your choice
 
-number of appointment types by month
-the schedule for each consultant
-one additional report of your choice
 Provide the ability to track user activity by recording timestamps for user log-ins in a .txt file. Each new record should be appended to the log file, if the file already exists.
 Demonstrate professional communication in the content and presentation of your submission.
